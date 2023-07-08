@@ -1,0 +1,15 @@
+def see_tier_lists():
+    load_or_create_json()
+    with open("albums.json", "r") as f:
+        data = json.load(f)
+
+    if not data["tier_lists"]:
+        print("❌ [b red]No tier lists have been created yet![/b red]")
+        return
+    
+    for key in data["tier_lists"]:
+        image_generator(f"{key['tier_list_name']}.png", key)
+        print(f"✅ [b green]CREATED[/b green] {key['tier_list_name']} tier list.")
+        
+    print("✅ [b green]DONE[/b green]. Check the directory for the tier lists.")    
+    return
